@@ -3,7 +3,7 @@ from Bio import SwissProt
 import pandas as pd
 '''
 f_in: input uniprot data file name
-f_out: output filename for the combined fasta
+f_out: output filename for the combined information as a csv file
 '''
 f_in = sys.argv[1]
 f_out = sys.argv[2]
