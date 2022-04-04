@@ -3,7 +3,7 @@ from Bio import SwissProt
 import pandas as pd
 '''
 f_in: input uniprot data file name
-f_out: output filename for the combined information as a csv file
+f_out: output filename for the combined fasta
 '''
 f_in = sys.argv[1]
 f_out = sys.argv[2]
@@ -30,9 +30,9 @@ for record in SwissProt.parse(open(f_in)):
                     tmp_syn.append(n.split('=')[1])
             Synonyms.append('|'.join(tmp_syn))
         else:
-            Synonyms.append(None)
+            Synonyms.append('')
     except:
-        Synonyms.append(None)
+        Synonyms.append('')
     # EC number
     tmp_ec = []
     if 'EC=' in record.description:
@@ -41,7 +41,7 @@ for record in SwissProt.parse(open(f_in)):
                 tmp_ec.append(d.split('=')[1])
         EC.append('|'.join(tmp_ec))
     else:
-        EC.append(None)
+        EC.append('')
     # GO and GeneId in cross reference
     tmp_go = []
     tmp_geneID = []
